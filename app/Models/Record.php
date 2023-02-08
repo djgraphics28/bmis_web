@@ -32,4 +32,6 @@ class Record extends Model
         });
 
     }
+
+
 }

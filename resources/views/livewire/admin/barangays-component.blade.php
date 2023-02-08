@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         <div class="col-md-4">
-            <input wire:model="searchTerm" type="text" class="form-control" placeholder="Search Here ...">
+            <input wire:model="searchTerm" type="text" class="form-control bg-primary-700" placeholder="Search Here ..." >
         </div>
         <div class="col-md-7"> <div class="d-flex justify-content-center">
             <div wire:loading class="spinner-border" role="status">
@@ -17,27 +17,27 @@
 
     <div class="row mt-3">
         <div class="col-md-12">
-            <div class="card p-2">
-                <div class="card-body">
+            <div class="card">
+                <div class="card-body p-2">
 
-                    <table class="table">
+                    <table class="table table-bordered">
                         <thead class="thead-dark">
                             <tr>
-                                <th>#</th>
-                                <th>Barangay</th>
-                                <th>Punong Barangay</th>
-                                <th>Contact</th>
-                                <th>Action</th>
+                                <th class="text-center" style="width: 5%">#</th>
+                                <th class="text-start" style="width: 20%">Barangay</th>
+                                <th class="text-start" style="width: 20%">Punong Barangay</th>
+                                <th class="text-center" style="width: 15%">Contact</th>
+                                <th class="text-center" style="width: 10%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($records as $data)
                                 <tr>
-                                    <td>{{ $data->id }}</td>
-                                    <td>{{ $data->barangay_name }}</td>
-                                    <td>{{ $data->barangay_head }}</td>
-                                    <td>{{ $data->contact_number }}</td>
-                                    <td>
+                                    <td class="text-center">{{ $data->id }}</td>
+                                    <td class="text-start">{{ $data->barangay_name }}</td>
+                                    <td class="text-start">{{ $data->barangay_head }}</td>
+                                    <td class="text-center">{{ $data->contact_number }}</td>
+                                    <td class="text-center">
                                         <button wire:click="edit({{ $data->id }})" class="btn btn-warning">EDIT</button>
                                         <button wire:click="alertConfirm({{ $data->id }})" class="btn btn-danger">REMOVE</button>
                                     </td>
@@ -56,6 +56,9 @@
 
                     </table>
 
+
+                </div>
+                <div class="car-footer p-3">
                     {{ $records->links() }}
                 </div>
             </div>
@@ -134,10 +137,12 @@
     })
     window.addEventListener('swal:modal', event => {
         swal({
+            position: event.detail.position,
             title: event.detail.message,
             text: event.detail.text,
             icon: event.detail.type,
             button: event.detail.button,
+            timer: event.detail.timer,
         });
     });
     window.addEventListener('swal:confirm', event => {

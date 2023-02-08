@@ -113,10 +113,12 @@ class BarangaysComponent extends Component
 
         if($data){
             $this->dispatchBrowserEvent('swal:modal', [
+                'positiom' => 'top-end',
                 'type' => 'success',
                 'message' => 'Barangay Data Successfully Updated!',
                 'text' => '.',
-                'button' => false
+                'button' => false,
+                'timer' => 1500
             ]);
 
             $this->dispatchBrowserEvent('hide-form-modal');
@@ -131,6 +133,7 @@ class BarangaysComponent extends Component
     {
         $this->deleteConfirmed = $id;
         $this->dispatchBrowserEvent('swal:confirm', [
+            'positiom' => 'top-end',
             'type' => 'warning',
             'message' => 'Are you sure?',
             'text' => 'If deleted, you will not be able to recover this imaginary file!'
@@ -144,7 +147,9 @@ class BarangaysComponent extends Component
             $this->dispatchBrowserEvent('swal:modal', [
                 'type' => 'success',
                 'message' => 'Barangay has been removed!',
-                'text' => '.'
+                'text' => '.',
+                'button' => false,
+                'timer' => 1500
             ]);
         }
     }

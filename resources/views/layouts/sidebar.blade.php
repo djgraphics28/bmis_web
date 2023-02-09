@@ -85,6 +85,15 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="/logout" class="nav-link">
+              <i class="nav-icon fas fa-building"></i>
+              <p>
+                Logout
+                {{-- <span class="right badge badge-danger">New</span> --}}
+              </p>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
